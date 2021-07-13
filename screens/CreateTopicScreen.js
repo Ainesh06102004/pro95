@@ -3,6 +3,7 @@ import {View,Text,TouchableOpacity,StyleSheet,TextInput,KeyboardAvoidingView,Ale
 import MyHeader from '../components/MyHeader';
 import db from '../config';
 import firebase from 'firebase';
+import { SafeAreaProvider } from 'react-native-safe-area-context'
 
 export default class CreateTopicScreen extends React.Component{
     constructor(){
@@ -35,7 +36,7 @@ export default class CreateTopicScreen extends React.Component{
     }
     
     render(){
-        return(
+        return(<SafeAreaProvider>
             <View style={{flex:1}}>
                 <MyHeader title = "Create Your Topic" navigation = {this.props.navigation}/>
                 <KeyboardAvoidingView style={styles.keyBoardStyle}>
@@ -68,7 +69,7 @@ export default class CreateTopicScreen extends React.Component{
                     </TouchableOpacity>   
                 </KeyboardAvoidingView>
             </View>
-        );
+            </SafeAreaProvider>);
     }
 }
 
